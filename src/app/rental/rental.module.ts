@@ -9,6 +9,11 @@ import { RentalListItemComponent } from "./rental-list-item/rental-list-item.com
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { NgPipesModule } from "ngx-pipes";
+import { Daterangepicker } from "ng2-daterangepicker";
+import { RentalDetailBookingComponent } from "./rental-detail/rental-detail-booking/rental-detail-booking.component";
+import { FormsModule } from "@angular/forms";
+import { RentalSearchComponent } from "./rental-search/rental-search.component";
+import { RentalCreateComponent } from "./rental-create/rental-create.component";
 
 @NgModule({
   declarations: [
@@ -16,14 +21,19 @@ import { NgPipesModule } from "ngx-pipes";
     RentalListComponent,
     RentalComponent,
     RentalDetailComponent,
-    UppercasePipe
+    UppercasePipe,
+    RentalDetailBookingComponent,
+    RentalSearchComponent,
+    RentalCreateComponent
   ],
   imports: [
     CommonModule,
     RentalRoutingModule,
     HttpClientModule,
     NgPipesModule,
-    MapModule
+    MapModule,
+    Daterangepicker,
+    FormsModule
   ]
 })
 export class RentalModule {}
