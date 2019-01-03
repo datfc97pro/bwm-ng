@@ -8,9 +8,10 @@ import { CommonModule } from "@angular/common";
 import { AuthRoutingModule } from "./auth-routing.module";
 import { AuthComponent } from "./auth.component";
 import { RegisterComponent } from "./register/register.component";
+import { LoginGoogleComponent } from './login/login-google/login-google.component';
 
 @NgModule({
-  declarations: [AuthComponent, LoginComponent, RegisterComponent],
+  declarations: [AuthComponent, LoginComponent, RegisterComponent, LoginGoogleComponent],
   imports: [CommonModule, AuthRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [
     AuthGuard,

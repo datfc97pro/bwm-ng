@@ -17,10 +17,14 @@
           </h2>
           <div class="rental-owner">
             <img
-              src="https://api.adorable.io/avatars/285/abott@adorable.png"
+              [src]="
+                rental.user.avatar
+                  ? rental.user.avatar
+                  : 'https://api.adorable.io/avatars/285/abott@adorable.png'
+              "
               alt=""
             />
-            <!-- <span>{{ rental.user.username }}</span> -->
+            <span>{{ rental.user.username }}</span>
           </div>
 
           <h1 class="rental-title">{{ rental.title }}</h1>

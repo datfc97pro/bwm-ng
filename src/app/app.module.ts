@@ -10,6 +10,10 @@ import { HeaderComponent } from "./common/header/header.component";
 import { RentalModule } from "./rental/rental.module";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { ToastrModule } from "ngx-toastr";
+import { NgxStripeModule } from "ngx-stripe";
+
+import { EditableModule } from "./common/components/editable/editable.module";
+import { UserModule } from "./user/user.module";
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent],
@@ -21,7 +25,10 @@ import { ToastrModule } from "ngx-toastr";
     NgbModule.forRoot(),
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
-    ManageModule
+    ManageModule,
+    EditableModule,
+    NgxStripeModule.forRoot("pk_test_fm3f1nL7BFBmXMuLC5OawOPz"),
+    UserModule
   ],
   providers: [],
   bootstrap: [AppComponent]

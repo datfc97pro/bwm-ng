@@ -1,4 +1,10 @@
-import { Component, OnInit, Input, ViewChild, ViewEncapsulation } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  Input,
+  ViewChild,
+  ViewEncapsulation
+} from "@angular/core";
 import { AuthService } from "src/app/auth/shared/auth.service";
 import { Rental } from "../../shared/rental.model";
 import { Booking } from "src/app/booking/shared/booking.model";
@@ -103,7 +109,13 @@ export class RentalDetailBookingComponent implements OnInit {
         this.resetDatePicker();
         this.toastr.success(
           "Booking has been succesfuly created, check your booking detail in manage section",
-          "Success!"
+          "Success!",
+          {
+            timeOut: 1500,
+            progressBar: true,
+            closeButton: true,
+            tapToDismiss: true
+          }
         );
       },
       (errorResponse: any) => {

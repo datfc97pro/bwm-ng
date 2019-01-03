@@ -1,0 +1,117 @@
+<div *ngIf="user" class="container bootstrap snippet">
+  <div class="row">
+    <div class="col-sm-8">
+      <h1>{{ user.username }}</h1>
+    </div>
+    <div *ngIf="user.revenue" class="col-sm-4 revenue">
+      <h1>Revenue: {{ user.revenue / 100 }} $</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-3">
+      <!--left col-->
+      <div class="text-center">
+        <img
+          [src]="
+            user.avatar
+              ? user.avatar
+              : 'https://api.adorable.io/avatars/285/abott@adorable.png'
+          "
+          class="avatar img-circle img-thumbnail"
+          alt="avatar"
+        />
+        <div>
+          <label class="image-upload-container btn btn-bwm">
+            <span>Select Image</span>
+            <input
+              type="file"
+              accept="image/*"
+              (change)="processFile($event)"
+            />
+          </label>
+        </div>
+
+        <h6>Upload a different photo...</h6>
+      </div>
+      <div class="panel panel-default"></div>
+    </div>
+    <!--/col-3-->
+    <div class="col-lg-9">
+      <div class="tab-pane active" id="home">
+        <form class="form" #userForm="ngForm">
+          <br />
+          <div class="form-group">
+            <div class="col-xs-6">
+              <label for="username"> <h4>Username</h4> </label>
+              <p *ngIf="!isActiveInput">{{ user.username }}</p>
+              <input
+                *ngIf="isActiveInput"
+                [(ngModel)]="user.username"
+                type="text"
+                class="form-control"
+                name="username"
+                id="username"
+                placeholder="full name"
+                title="enter your full name if any."
+                required
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-xs-6">
+              <label for="address"> <h4>Address</h4> </label>
+              <p *ngIf="!isActiveInput">{{ user.address }}</p>
+              <input
+                *ngIf="isActiveInput"
+                [(ngModel)]="user.address"
+                type="text"
+                class="form-control"
+                name="address"
+                id="address"
+                placeholder="address"
+                title="enter your address if any."
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-xs-6">
+              <label for="email"> <h4>Email</h4> </label>
+              <p>{{ user.email }}</p>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-xs-12">
+              <br />
+              <button
+                *ngIf="isActiveInput"
+                class="btn btn-success"
+                type="submit"
+                (click)="update(userForm)"
+                [disabled]="!userForm.form.valid"
+              >
+                <i class="glyphicon glyphicon-ok-sign"></i> Save
+              </button>
+              <button
+                *ngIf="!isActiveInput"
+                class="btn btn-warning"
+                type="submit"
+                (click)="isActiveInput = true"
+              >
+                <i class="glyphicon glyphicon-ok-sign"></i> Edit
+              </button>
+              <button class="btn btn-warning ml-2" type="reset">
+                <i class="glyphicon glyphicon-repeat"></i> Reset
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!--/tab-pane-->
+
+      <!--/tab-pane-->
+    </div>
+    <!--/tab-content-->
+  </div>
+  <!--/col-9-->
+</div>
+<!--/row-->

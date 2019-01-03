@@ -9,7 +9,6 @@ import { Rental } from "../shared/rental.model";
   styleUrls: ["./rental-detail.component.scss"]
 })
 export class RentalDetailComponent implements OnInit {
-  currentId: string;
   rental: Rental;
 
   constructor(

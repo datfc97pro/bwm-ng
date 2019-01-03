@@ -74,7 +74,7 @@
       Price: <em>{{ newBooking.totalPrice }}$</em>
     </p>
 
-    <!-- <bwm-payment (paymentConfirmed)="onPaymentConfirmed($event)"> </bwm-payment> -->
+    <app-payment (paymentConfirmed)="onPaymentConfirmed($event)"></app-payment>
 
     <p>Do you confirm booking for selected days?</p>
   </div>
@@ -83,7 +83,7 @@
   </div>
   <div class="modal-footer">
     <button
-      
+      [disabled]="!newBooking.paymentToken"
       type="button"
       class="btn btn-bwm"
       (click)="createBooking()"

@@ -1,3 +1,4 @@
+import { async } from "@angular/core/testing";
 import { FormGroup, Validators, FormBuilder } from "@angular/forms";
 import { Component, OnInit } from "@angular/core";
 import { AuthService } from "../shared/auth.service";
@@ -17,10 +18,17 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private auth: AuthService,
     private router: Router,
-    private route: ActivatedRoute,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit() {
+    this.route.queryParams.subscribe(async query => {
+      if (query.loginGoogle) {
+        await this.auth.saveToken(query.loginGoogle);
+        window.location.reload();
+      }
+    });
+
     this.initForm();
 
     this.route.params.subscribe(params => {

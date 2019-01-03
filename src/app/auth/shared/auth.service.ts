@@ -23,8 +23,8 @@ export class AuthService {
       JSON.parse(localStorage.getItem("bwm_meta")) || new DecodedToken();
   }
 
-  private saveToken(token: string): string {
-    const tokenSplit = token.split(" ")[1];
+  public saveToken(token: string): string {
+    const tokenSplit = token ? token.split(" ")[1] : "";
 
     this.decodedToken = jwt.decodeToken(tokenSplit);
 
