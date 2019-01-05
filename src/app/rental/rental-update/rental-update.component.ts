@@ -39,7 +39,6 @@ export class RentalUpdateComponent implements OnInit {
   getRental(rentalId: string) {
     this.rentalService.getRentalById(rentalId).subscribe((rental: Rental) => {
       this.rental = rental;
-      debugger;
     });
   }
 
